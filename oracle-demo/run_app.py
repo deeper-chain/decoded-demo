@@ -7,7 +7,7 @@ def run():
     w3 = Web3(Web3.HTTPProvider("https://mainnet-dev.deeper.network/rpc"))
     contract_instance = w3.eth.contract(address='0x60eF94dbbe8E80024Eff0693976Be26d27aEA746', abi=abi)
 
-    transaction = contract_instance.functions.nNodeUnSpecifiedAddressTask('xcaptain/web3-demo2:arm64', '', 10, 10).buildTransaction({
+    transaction = contract_instance.functions.nNodeUnSpecifiedAddressTask('amadeusgb/oracle:v1.0', '', 10, 10).buildTransaction({
         'gas': 228709,
         'nonce': w3.eth.get_transaction_count('0x27FdDEF298618B512Fa6D281DB0e32E0F38D15D3')
     })
