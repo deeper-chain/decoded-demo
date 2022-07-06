@@ -4,7 +4,7 @@ import json
 def run():
     abi = json.load(open('dep_contract.json', 'r'))
     w3 = Web3(Web3.HTTPProvider("https://mainnet-dev.deeper.network/rpc"))
-    contract_instance = w3.eth.contract(address='0x60eF94dbbe8E80024Eff0693976Be26d27aEA746', abi=abi)
+    contract_instance = w3.eth.contract(address='0x8093A42f28Cd1697D2176AA75D861c1cD850815f', abi=abi)
 
     transaction = contract_instance.functions.nNodeUnSpecifiedAddressTask('amadeusgb/bench:v1.0', 'https://www.bing.com', 10, 10).buildTransaction({
         'gas': 238709,

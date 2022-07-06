@@ -12,6 +12,63 @@
     },
     {
         "type": "event",
+        "name": "AddImagePersistenceWhitelist",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "sender",
+                "internalType": "address",
+                "indexed": false
+            },
+            {
+                "type": "string",
+                "name": "url",
+                "internalType": "string",
+                "indexed": false
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "AddTaskDuration",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "optionUser",
+                "internalType": "address",
+                "indexed": false
+            },
+            {
+                "type": "uint64",
+                "name": "taskId",
+                "internalType": "uint64",
+                "indexed": false
+            },
+            {
+                "type": "uint64",
+                "name": "maintainExtraBlocks",
+                "internalType": "uint64",
+                "indexed": false
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "DeleteImage",
+        "inputs": [
+            {
+                "type": "string",
+                "name": "url",
+                "internalType": "string",
+                "indexed": false
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
         "name": "RaceTask",
         "inputs": [
             {
@@ -187,31 +244,6 @@
         "anonymous": false
     },
     {
-        "type": "event",
-        "name": "addTaskDuration",
-        "inputs": [
-            {
-                "type": "address",
-                "name": "optionUser",
-                "internalType": "address",
-                "indexed": false
-            },
-            {
-                "type": "uint64",
-                "name": "taskId",
-                "internalType": "uint64",
-                "indexed": false
-            },
-            {
-                "type": "uint64",
-                "name": "maintainExtraBlocks",
-                "internalType": "uint64",
-                "indexed": false
-            }
-        ],
-        "anonymous": false
-    },
-    {
         "type": "function",
         "stateMutability": "view",
         "outputs": [
@@ -249,6 +281,19 @@
         ],
         "name": "UPDATER_ROLE",
         "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "addImagePersistenceWhitelist",
+        "inputs": [
+            {
+                "type": "string",
+                "name": "url",
+                "internalType": "string"
+            }
+        ]
     },
     {
         "type": "function",
@@ -324,6 +369,19 @@
                 "type": "uint64",
                 "name": "",
                 "internalType": "uint64"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "deleteImage",
+        "inputs": [
+            {
+                "type": "string",
+                "name": "url",
+                "internalType": "string"
             }
         ]
     },
@@ -572,6 +630,25 @@
     },
     {
         "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "bool",
+                "name": "",
+                "internalType": "bool"
+            }
+        ],
+        "name": "imageWhiteListStatus",
+        "inputs": [
+            {
+                "type": "string",
+                "name": "",
+                "internalType": "string"
+            }
+        ]
+    },
+    {
+        "type": "function",
         "stateMutability": "pure",
         "outputs": [
             {
@@ -613,6 +690,25 @@
         ],
         "name": "initRunNum",
         "inputs": []
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
+                "type": "bool",
+                "name": "",
+                "internalType": "bool"
+            }
+        ],
+        "name": "isWithdrawFromOwner",
+        "inputs": [
+            {
+                "type": "uint64",
+                "name": "",
+                "internalType": "uint64"
+            }
+        ]
     },
     {
         "type": "function",
@@ -942,6 +1038,11 @@
                 "type": "uint256",
                 "name": "taskUintProof",
                 "internalType": "uint256"
+            },
+            {
+                "type": "address",
+                "name": "publisher",
+                "internalType": "address"
             }
         ],
         "name": "taskInfo",
@@ -1045,6 +1146,25 @@
         "stateMutability": "view",
         "outputs": [
             {
+                "type": "string",
+                "name": "",
+                "internalType": "string"
+            }
+        ],
+        "name": "userSetWhiteImage",
+        "inputs": [
+            {
+                "type": "address",
+                "name": "",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "view",
+        "outputs": [
+            {
                 "type": "uint64",
                 "name": "",
                 "internalType": "uint64"
@@ -1103,6 +1223,19 @@
             {
                 "type": "uint64",
                 "name": "",
+                "internalType": "uint64"
+            }
+        ]
+    },
+    {
+        "type": "function",
+        "stateMutability": "nonpayable",
+        "outputs": [],
+        "name": "withdrawEZC",
+        "inputs": [
+            {
+                "type": "uint64",
+                "name": "taskId",
                 "internalType": "uint64"
             }
         ]
